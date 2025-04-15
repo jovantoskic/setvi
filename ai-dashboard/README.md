@@ -1,54 +1,46 @@
-# React + TypeScript + Vite
+# AI-Enhanced Intelligence Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project implements an AI-powered intelligence dashboard built with React, TypeScript, Material UI, Zustand, and OpenAI API (mocked for now). It provides a report management system where users can create, edit, reorder, and summarize reports.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Report Management**:
+  - View reports in a list or cards
+  - Search and filter reports by title
+  - Create new reports with rich-text content
+  - Edit and update existing reports
+  - Reorder reports with drag-and-drop functionality
+- **AI Assistant Integration**:
+  - Generate AI drafts for reports based on user input
+  - Summarize existing report content using AI (mocked for now)
+- **Drag-and-Drop**:
+  - Reports can be reordered using the dnd-kit library
+- **Responsive UI**:
+  - Fully responsive and accessible user interface built with Material UI
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React.js** (Frontend Framework)
+- **TypeScript** (For static typing)
+- **Zustand** (State Management)
+- **Material UI** (UI Library)
+- **dnd-kit** (Drag-and-Drop)
+- **TinyMCE** (Rich-text editor)
+- **OpenAI API** (Mocked for now)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Setup Instructions
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Node.js installed (version 14.x or higher)
+- Yarn or npm (for package management)
+
+### Steps
+
+1. **Clone the repository**:
+   ```bash
+   git clone <repo-url>
+   cd <project-folder>
+   ```
