@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Dashboard from './pages/Dashboard'
-import ReportEditor from './pages/Editor'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import ReportEditor from './pages/Editor';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Route path="/new" element={<ReportEditor />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

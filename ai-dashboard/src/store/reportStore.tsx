@@ -1,17 +1,17 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 export type Report = {
-  id: string
-  title: string
-  content: string
-}
+  id: string;
+  title: string;
+  content: string;
+};
 
 type ReportState = {
-  reports: Report[]
-  addReport: (report: Report) => void
-  updateReport: (id: string, updated: Partial<Report>) => void
-  reorderReports: (newOrder: Report[]) => void
-}
+  reports: Report[];
+  addReport: (report: Report) => void;
+  updateReport: (id: string, updated: Partial<Report>) => void;
+  reorderReports: (newOrder: Report[]) => void;
+};
 
 export const useReportStore = create<ReportState>((set) => ({
   reports: [],
@@ -24,4 +24,4 @@ export const useReportStore = create<ReportState>((set) => ({
       ),
     })),
   reorderReports: (newOrder) => set(() => ({ reports: newOrder })),
-}))
+}));
