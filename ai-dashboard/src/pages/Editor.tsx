@@ -1,18 +1,26 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Editor } from '@tinymce/tinymce-react';
 import { useReportStore } from '../store/reportStore';
 import { v4 as uuidv4 } from 'uuid';
 import { mockGenerateDraft } from '../utils/mockAI';
 
 const ReportEditor = () => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const addReport = useReportStore((state) => state.addReport);
-  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const reportToEdit = useReportStore((s) =>
+    s.reports.find((r) => r.id === id)
+  );
+
+  const [title, setTitle] = useState(reportToEdit?.title || '');
+  const [content, setContent] = useState(reportToEdit?.content || '');
+
   const [prompt, setPrompt] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const addReport = useReportStore((state) => state.addReport);
+  const navigate = useNavigate();
 
   const handleGenerate = async () => {
     if (!prompt.trim()) return;
@@ -22,9 +30,15 @@ const ReportEditor = () => {
     setLoading(false);
   };
 
+  const updateReport = useReportStore((s) => s.updateReport);
+
   const handleSave = () => {
     if (!title.trim()) return;
-    addReport({ id: uuidv4(), title, content });
+    if (reportToEdit) {
+      updateReport(reportToEdit.id, { title, content });
+    } else {
+      addReport({ id: uuidv4(), title, content });
+    }
     navigate('/');
   };
 

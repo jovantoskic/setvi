@@ -70,7 +70,11 @@ const Dashboard = () => {
             strategy={verticalListSortingStrategy}
           >
             {filtered.map((report) => (
-              <SortableReportCard key={report.id} report={report} />
+              <SortableReportCard
+                key={report.id}
+                report={report}
+                //     onEdit={() => navigate(`/edit/${report.id}`)}
+              />
             ))}
           </SortableContext>
         </DndContext>

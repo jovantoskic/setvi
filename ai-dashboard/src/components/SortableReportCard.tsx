@@ -1,8 +1,4 @@
-import {
-  useSortable,
-  // SortableContext,
-  // verticalListSortingStrategy,
-} from '@dnd-kit/sortable';
+import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import ReportCard from './ReportCard';
 import { Report } from '../store/reportStore';
@@ -12,8 +8,9 @@ type Props = {
 };
 
 const SortableReportCard = ({ report }: Props) => {
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: report.id });
+  const { listeners, setNodeRef, transform, transition } = useSortable({
+    id: report.id,
+  });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -22,7 +19,17 @@ const SortableReportCard = ({ report }: Props) => {
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <div ref={setNodeRef} style={style}>
+      <div
+        style={{
+          width: '20px',
+          height: '20px',
+          backgroundColor: 'gray',
+          cursor: 'grab',
+          marginBottom: '8px',
+        }}
+        {...listeners}
+      />
       <ReportCard report={report} />
     </div>
   );
